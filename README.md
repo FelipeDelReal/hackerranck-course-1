@@ -4,6 +4,14 @@
 
 #### Commit directo a main
 
-![alt text](commit.png)
+![alt text](trunk/commit.png)
 
 #### Push de cambios
+
+![alt text](trunk/push.png)
+
+### Trun Based Development
+
+#### Creacion de branch develop
+
+![alt text](gitflow/develop.png)
