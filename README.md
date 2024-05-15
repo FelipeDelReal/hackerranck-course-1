@@ -49,3 +49,5 @@ Conflicto
 #### Resolucion de conflictos
 
 ![alt text](resolucion.png)
+
+## 3. Pull Request and Code Review Simulation
