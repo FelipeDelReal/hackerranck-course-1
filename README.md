@@ -51,3 +51,5 @@ Conflicto
 ![alt text](resolucion.png)
 
 ## 3. Pull Request and Code Review Simulation
+
+![alt text](pullrequest.png)
