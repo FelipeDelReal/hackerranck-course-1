@@ -54,3 +54,6 @@ Conflicto
 
 ![alt text](pullrequest.png)
 ![alt text](pr.png)
+
+Se solicito una aprovacion, la cual el revisor solicito un cambio, se realizo el cambio y se solicito de nuevo su aprobacion, la cual llevo a otra solucion
+![alt text](approve.png)
