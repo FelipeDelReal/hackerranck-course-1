@@ -40,3 +40,5 @@
 ![alt text](gitflow/mergemain.png)
 
 ## 2. Conflict Resolution and Merging
+
+Conflicto
