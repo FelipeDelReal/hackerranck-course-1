@@ -24,3 +24,7 @@
 #### Commits en feature
 
 ![alt text](gitflow/commit.png)
+
+### Merge feature a develop
+
+![alt text](gitflow/merge.png)
