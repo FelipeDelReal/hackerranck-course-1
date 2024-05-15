@@ -1,4 +1,6 @@
-# hackerranck-course-1
+# Tasks
+
+## 1. Branch Strategy Simulation
 
 ### Trun Based Development
 
@@ -10,7 +12,7 @@
 
 ![alt text](trunk/push.png)
 
-### Trun Based Development
+### Gitflow
 
 #### Creacion de branch develop
 
@@ -36,3 +38,5 @@
 #### Merge release a main
 
 ![alt text](gitflow/mergemain.png)
+
+## 2. Conflict Resolution and Merging
