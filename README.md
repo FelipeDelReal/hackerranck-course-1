@@ -43,5 +43,9 @@
 
 ![alt text](conflicto.png)
 
-Hubo conflicto y tomamos Incomming change
+Hubo conflicto y tomamos _Incomming change_ ya que contaba con la informacion que requeriamos
 Conflicto
+
+#### Resolucion de conflictos
+
+![alt text](resolucion.png)
