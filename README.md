@@ -32,3 +32,7 @@
 #### Creacion rama release
 
 ![alt text](gitflow/release.png)
+
+#### Merge release a main
+
+![alt text](gitflow/mergemain.png)
