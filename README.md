@@ -20,3 +20,7 @@
 #### Creacion de branch feature
 
 ![alt text](gitflow/feature.png)
+
+#### Commits en feature
+
+![alt text](gitflow/commit.png)
