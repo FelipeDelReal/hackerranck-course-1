@@ -25,6 +25,10 @@
 
 ![alt text](gitflow/commit.png)
 
-### Merge feature a develop
+#### Merge feature a develop
 
 ![alt text](gitflow/merge.png)
+
+#### Creacion rama release
+
+![alt text](gitflow/release.png)
