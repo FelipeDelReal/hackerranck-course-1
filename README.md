@@ -41,4 +41,7 @@
 
 ## 2. Conflict Resolution and Merging
 
-este tambien es un conflicto
+![alt text](conflicto.png)
+
+Hubo conflicto y tomamos Incomming change
+Conflicto
