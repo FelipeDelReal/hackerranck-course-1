@@ -1,0 +1,313 @@
+openapi: 3.0.0
+info:
+  title: 'User Service API'
+  description: 'Management user, order and customer service tickets'
+  version: '1'
+tags: 
+  - name: User
+    description: Management users
+  - name: Order
+    description: Management orders
+  - name: Customer Service
+    description: Management customer service
+servers:
+  - url: "https://dev.lab8.com/v1"
+    description: Dev server
+  - url: "https://qa.lab8.com/v1"
+    description: QA server
+  - url: "https://stg.lab8.com/v1"
+    description: Stage server
+  - url: "https://lab8.com/v1"
+    description: Production server
+security:
+  - bearerAuth: []
+paths:
+  /users:
+    get:
+      tags: ['User']
+      summary: 'Get All Users'
+      responses:
+        '200':
+          description: 'User List'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      tags: ['User']
+      summary: 'Create new user'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+                items:
+                  $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: 'User created'
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+    put:
+      tags: ['User']
+      summary: 'Update a user'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: 'User updated'
+        404:
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          
+  /users/{userId}:
+    parameters:
+      - name: userId
+        in: path
+        required: true
+        description: User indentifier
+        schema:
+          type : integer
+          format: int64
+          minimum: 1
+    get:
+      tags: ['User']
+      summary: 'Get specific user'
+      responses:
+        '200':
+          description: 'User details'
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/User'
+        404:
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+    delete:
+      tags: ['User']
+      summary: 'Delete a specific user'
+      responses:
+        '200':
+          description: 'Usuario eliminado'
+        404:
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+  /orders/{UserId}:
+    parameters:
+      - name: UserId
+        in: path
+        required: true
+        description: User indentifier
+        schema:
+          type : integer
+          format: int64
+          minimum: 1
+    get:
+      tags: ['Order']
+      summary: 'Get all user orders'
+      responses:
+        '200':
+          description: 'Orders list'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+        404:
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+  /orders/{OrderId}:
+    parameters:
+      - name: OrderId
+        in: path
+        required: true
+        description: Order indentifier
+        schema:
+          type : integer
+          format: int64
+          minimum: 1
+    delete:
+      tags: ['Order']
+      summary: 'Cancel order'
+      responses:
+        '200':
+          description: 'Order canceled'
+        404:
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+  /orders:
+    post:
+      tags: ['Order']
+      summary: 'Create new order'
+      responses:
+        '201':
+          description: 'Order created'
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              items:
+                $ref: '#/components/schemas/Order'
+                  
+  /customer-service:
+    post:
+      tags: ['Customer Service']
+      summary: 'Create new customer ticket'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Ticket'
+      responses:
+        '201':
+          description: 'Ticket created'
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          
+  /customer-service/{TicketId}:
+    parameters:
+    - name: TicketId
+      in: path
+      required: true
+      description: Ticket indentifier
+      schema:
+        type : integer
+        format: int64
+        minimum: 1
+    get:
+      tags: ['Customer Service']
+      summary: 'Get ticket status'
+      responses:
+        '201':
+          description: 'Ticket created'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                    example: 4
+                  status:
+                    type: string
+                    example: Completed
+        404:
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'Bearer token'
+  schemas:
+    User:
+      type: object
+      properties:
+        Id:
+          type: integer
+          nullable: false
+          example: 1
+        Name:
+          type: string
+          nullable: false
+          example: "Felipe"
+        Lastname:
+          type: string
+          nullable: false
+          example: "Del Real Torres"
+    Order:
+      type: object
+      properties:
+        Id:
+          type: integer
+          nullable: false
+          example: 1
+        Date:
+          type: string
+          nullable: false
+          example: "11/05/2024"
+        Amount:
+          type: integer
+          nullable: false
+          example: 100.00
+    Ticket:
+      type: object
+      properties:
+        Id:
+          type: integer
+          nullable: false
+          example: 1
+        Date:
+          type: string
+          nullable: false
+          example: "Error in purchase"
+        EmailContact:
+          type: string
+          nullable: false
+          example: "user@gmail.com"
+    ErrorModel:
+      type: object
+      required:
+      - message
+      - code
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          minimum: 100
+          maximum: 600
